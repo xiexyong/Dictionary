@@ -53,9 +53,9 @@ public class DictionaryManagement extends Dictionary {
                 if (line.indexOf("@") < 0) ww = ww.concat("\n").concat(line);
             }
             br.close();
-        for(int i=0;i<listWord.size(); i++){
-            System.out.println(i+1 + " : " + listWord.get(i).getWord_target() + "\n" + listWord.get(i).getWord_explain());
-        }
+//        for(int i=0;i<listWord.size(); i++){
+//            System.out.println(i+1 + " : " + listWord.get(i).getWord_target() + "\n" + listWord.get(i).getWord_explain());
+//        }
     }
     public void  dictionaryLookup() {
         System.out.print("\nInsert word to search :");
