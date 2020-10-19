@@ -84,7 +84,7 @@ public class DictionaryManagement extends Dictionary {
         if (dem2 == 0){
         System.out.print("\nInsert meaning of the word : " );
         String b = sc.nextLine();
-        listWord.add(new Word(a,b));
+        listWord.add(new Word(a,"\n".concat(b)));
             System.out.print("Add successfully.\n");
         }
     }
@@ -123,10 +123,11 @@ public class DictionaryManagement extends Dictionary {
     public void dictionaryExportToFile() throws FileNotFoundException, UnsupportedEncodingException, IOException {
         try {
             Writer out = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(filewrite), "UTF8"));
+                    new FileOutputStream(filedata), "UTF8"));
             int dem = 1;
+            out.append("@");
             for ( Word w : listWord){
-                out.append(dem + " : " + w.getWord_target() + w.getWord_explain() + "\n\n");
+                out.append(w.getWord_target().trim() + "\n" + w.getWord_explain().trim()+"\n@");
                 dem ++;
             }
             out.flush();

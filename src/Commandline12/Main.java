@@ -8,9 +8,10 @@ public class Main extends DictionaryCommandline {
         //dm.dictionaryBasic();
         //dm.dictionaryAdvanced();
         dm.insertFromFile();
-        dm.dictionarySearcher();
-        //dm.addword();
+        //dm.dictionarySearcher();
+        dm.addword();
         //dm.dictionaryExportToFile();
         dm.dictionaryLookup();
+        dm.dictionaryExportToFile();
     }
 }
