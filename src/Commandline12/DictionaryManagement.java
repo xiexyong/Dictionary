@@ -1,11 +1,12 @@
 package Commandline12;
 
 import java.io.*;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class DictionaryManagement extends Dictionary {
     private final static String filedata  ="dictionaries.txt";
-    private final static String filewrite  ="dictionaries_write.txt";
+    //private final static String filewrite  ="dictionaries_write.txt";
     public int n;
     public Scanner sc = new Scanner(System.in);
     private boolean check(String word){
@@ -35,7 +36,7 @@ public class DictionaryManagement extends Dictionary {
             }
         }
     }
-    public void insertFromFile() throws IOException {
+    public static void insertFromFile() throws IOException {
         BufferedReader br = null;
             br = new BufferedReader(new InputStreamReader(new FileInputStream(filedata), "UTF-8"));
             String line = "";
@@ -53,9 +54,6 @@ public class DictionaryManagement extends Dictionary {
                 if (line.indexOf("@") < 0) ww = ww.concat("\n").concat(line);
             }
             br.close();
-//        for(int i=0;i<listWord.size(); i++){
-//            System.out.println(i+1 + " : " + listWord.get(i).getWord_target() + "\n" + listWord.get(i).getWord_explain());
-//        }
     }
     public void  dictionaryLookup() {
         System.out.print("\nInsert word to search :");
@@ -84,7 +82,7 @@ public class DictionaryManagement extends Dictionary {
         if (dem2 == 0){
         System.out.print("\nInsert meaning of the word : " );
         String b = sc.nextLine();
-        listWord.add(new Word(a,"\n".concat(b)));
+        listWord.add(new Word(a,b));
             System.out.print("Add successfully.\n");
         }
     }
@@ -120,24 +118,24 @@ public class DictionaryManagement extends Dictionary {
         System.out.print("\nRemove successfully.\n");}
         if (dem4 ==0) System.out.print("Can not find this word.\n");
     }
-    public void dictionaryExportToFile() throws FileNotFoundException, UnsupportedEncodingException, IOException {
+    public static void dictionaryExportToFile() throws FileNotFoundException, UnsupportedEncodingException, IOException {
         try {
-            Writer out = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream(filedata), "UTF8"));
+            Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("dictionaries.txt"), "UTF8"));
             int dem = 1;
             out.append("@");
-            for ( Word w : listWord){
-                out.append(w.getWord_target().trim() + "\n" + w.getWord_explain().trim()+"\n@");
-                dem ++;
+            for(Iterator var3 = listWord.iterator(); var3.hasNext(); ++dem) {
+                Word w = (Word)var3.next();
+                String var10001 = w.getWord_target().trim();
+                out.append(var10001 + "\n" + w.getWord_explain().trim() + "\n@");
             }
             out.flush();
             out.close();
-        } catch (UnsupportedEncodingException e) {
-            System.out.println(e.getMessage());
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (UnsupportedEncodingException var5) {
+            System.out.println(var5.getMessage());
+        } catch (IOException var6) {
+            System.out.println(var6.getMessage());
+        } catch (Exception var7) {
+            System.out.println(var7.getMessage());
         }
     }
 }

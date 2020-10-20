@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="600.0" style="-fx-background-image: image\search.png;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <TextField fx:id="anhremote" layoutX="254.0" layoutY="175.0" prefHeight="25.0" prefWidth="187.0" />
+      <Button layoutX="270.0" layoutY="261.0" mnemonicParsing="false" onAction="#hamRemote" text="Remove" />
+      <Label layoutX="189.0" layoutY="179.0" text="Word :" />
+      <Pane prefHeight="76.0" prefWidth="600.0" style="-fx-background-color: #202d75d9;">
+         <children>
+            <Label layoutX="229.0" layoutY="12.0" prefHeight="53.0" prefWidth="141.0" text="Remove" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</Pane>
